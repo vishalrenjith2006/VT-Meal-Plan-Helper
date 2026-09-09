@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multiple Food Options</title>
+
+    <style>
+        body {
+            text-align: center;
+            flex-direction: column;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(VTcolors.png);
+        }
+
+        .DiningHall {
+            display: flex;
+            gap: 20px;
+        }
+
+        .info-tile {
+            flex: 1;
+            border: 2px solid #e0e0e0;
+            padding: 20px;
+        }
+
+        .calculator {
+            margin-top: 20px;
+        }
+
+        .calculator-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Multiple Food Options</h1>
+
+    <div class="DiningHall">
+
+        <div class="info-tile">
+            <h3 class="tile-heading">Maroon</h3>
+            <p class="tile-body">
+                The Maroon plan costs $2,090 per semester and provides $2,090 in Declining Balance Dollars to spend at participating campus dining locations. It offers flexibility for upper-year students living on or off campus and can be a good fit for students who are frequently away on weekends.
+            </p>
+        </div>
+
+        <div class="info-tile">
+            <h3 class="tile-heading">Maroon Plus</h3>
+            <p class="tile-body">
+                The Maroon Plus plan costs $2,646 per semester and provides $2,646 in Declining Balance Dollars to spend at participating campus dining locations. It offers the same flexibility for upper-year students living on or off campus while providing a larger dining balance for students who expect to spend more throughout the semester.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="calculator">
+        <h2>Enter Approximate Daily Spending</h2>
+
+        <div class="calculator-row">
+            <input type="number" id="dailySpending" placeholder="Enter amount">
+            <button id="calculateButton">Calculate</button>
+        </div>
+    </div>
+
+    <script>
+        const calculateButton = document.getElementById("calculateButton");
+
+        calculateButton.addEventListener("click", function() {
+
+            const dailySpending =
+                Number(document.getElementById("dailySpending").value);
+
+            const semesterSpending = dailySpending * 120;
+
+            let recommendedPlan;
+
+            if (semesterSpending <= 2090) {
+                recommendedPlan = "Maroon";
+            }
+            else if (semesterSpending <= 2646) {
+                recommendedPlan = "Maroon Plus";
+            }
+            else {
+                recommendedPlan = "Unlimited or Unlimited Plus";
+            }
+
+            window.location.href =
+                "finalrecommendation.html?plan=" +
+                encodeURIComponent(recommendedPlan) +
+                "&spending=" +
+                semesterSpending;
+        });
+    </script>
+
+</body>
+
+</html>

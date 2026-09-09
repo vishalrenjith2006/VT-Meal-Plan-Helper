@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Your Recommendation</title>
+
+    <style>
+        body {
+            text-align: center;
+            flex-direction: column;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(VTcolors.png);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Your Recommended Plan</h1>
+
+    <h2 id="planName"></h2>
+
+    <p id="semesterSpending"></p>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        const plan = params.get("plan");
+        const spending = params.get("spending");
+
+        document.getElementById("planName").textContent = plan;
+
+        document.getElementById("semesterSpending").textContent =
+            "Estimated semester spending: $" +
+            Number(spending).toFixed(2);
+    </script>
+
+</body>
+
+</html>
