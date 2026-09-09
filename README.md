@@ -31,3 +31,7 @@ The recommendation logic was first prototyped in Java and then implemented in Ja
 ## Project Status
 
 MVP completed and tested.
+
+## Documentation
+
+Detailed product planning, user stories, acceptance criteria, testing, and development screenshots are available in the project working document.
